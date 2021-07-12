@@ -1,6 +1,14 @@
 # forked from [iamacup/react-native-markdown-display](https://github.com/katatumuri-maimai/react-native-markdown-display)
 
 
+## install
+```
+npm install --save katatumuri-maimai/react-native-markdown-display
+```
+
+```
+yarn install --save katatumuri-maimai/react-native-markdown-display
+```
 
 <details><summary>Fork source description</summary>  
 
