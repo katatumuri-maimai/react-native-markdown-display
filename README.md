@@ -2,7 +2,8 @@
 
 
 
-<details><summary>Fork source description</summary>
+<details><summary>Fork source description</summary>  
+
 # React Native Markdown Display 
 
 It a 100% compatible CommonMark renderer, a react-native markdown renderer done right. This is __not__ a web-view markdown renderer but a renderer that uses native components for all its elements. These components can be overwritten and styled as needed.
