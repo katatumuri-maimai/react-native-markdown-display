@@ -271,6 +271,11 @@ const renderRules = {
     defaultImageHandler,
   ) => {
     const {src, alt} = node.attributes;
+    const localImageHandlers = [
+      'data/',
+      'var/'
+    ]
+    const defaultLocalImageHandler = 'file:///'
 
     // we check that the source starts with at least one of the elements in allowedImageHandlers
     const show =
@@ -278,16 +283,24 @@ const renderRules = {
         return src.toLowerCase().startsWith(value.toLowerCase());
       }).length > 0;
 
-    if (show === false && defaultImageHandler === null) {
+    const local =
+      localImageHandlers.filter((value) => {
+        return src.toLowerCase().startsWith(value.toLowerCase());
+      }).length > 0;
+
+
+    if ((show === false || local===false) && defaultImageHandler === null) {
       return null;
     }
+
+    const imageUri = local ? defaultLocalImageHandler : defaultImageHandler
 
     const imageProps = {
       indicator: true,
       key: node.key,
       style: styles._VIEW_SAFE_image,
       source: {
-        uri: show === true ? src : `${defaultImageHandler}${src}`,
+        uri: show === true ? src : `${imageUri}${src}`,
       },
     };
 

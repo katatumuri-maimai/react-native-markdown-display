@@ -1,7 +1,7 @@
 {
   "name": "react-native-markdown-display",
   "version": "7.0.0-alpha.2",
-  "description": "Markdown renderer for react-native, with CommonMark spec support + adds syntax extensions & sugar (URL autolinking, typographer), originally created by Mient-jan Stelling as react-native-markdown-renderer",
+  "description": "Markdown renderer for react-native, with CommonMark spec support + adds syntax extensions & sugar (URL autolinking, typographer), forked from iamacup/react-native-markdown-display ,originally created by Mient-jan Stelling as react-native-markdown-renderer",
   "main": "src/index.js",
   "types": "src/index.d.ts",
   "scripts": {
@@ -12,7 +12,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/iamacup/react-native-markdown-display.git"
+    "url": "git+https://github.com/katatumuri-maimai/react-native-markdown-display.git"
   },
   "keywords": [
     "react",
@@ -22,12 +22,12 @@
     "commonmark",
     "markdown-it"
   ],
-  "author": "Mient-jan Stelling and Tom Pickard + others from the community",
+  "author": "Mient-jan Stelling and Tom Pickard + others from the community + katatumuri-maimai",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/iamacup/react-native-markdown-display/issues"
+    "url": "https://github.com/katatumuri-maimai/react-native-markdown-display/issues"
   },
-  "homepage": "https://github.com/iamacup/react-native-markdown-display/",
+  "homepage": "https://github.com/katatumuri-maimai/react-native-markdown-display/",
   "dependencies": {
     "css-to-react-native": "^3.0.0",
     "markdown-it": "^10.0.0",
