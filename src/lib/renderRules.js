@@ -7,6 +7,7 @@ import {
   StyleSheet,
 } from 'react-native';
 import FitImage from 'react-native-fit-image';
+import * as FileSystem from 'expo-file-system';
 
 import openUrl from './util/openUrl';
 import hasParents from './util/hasParents';
@@ -276,6 +277,7 @@ const renderRules = {
       'var/'
     ]
     const defaultLocalImageHandler = 'file:///'
+    const imagePickerUri = FileSystem.documentDirectory + 'SimpleMarkdown/ImagePicker/'
 
     // we check that the source starts with at least one of the elements in allowedImageHandlers
     const show =
@@ -283,24 +285,32 @@ const renderRules = {
         return src.toLowerCase().startsWith(value.toLowerCase());
       }).length > 0;
 
-    const local =
+    const localUri =
       localImageHandlers.filter((value) => {
         return src.toLowerCase().startsWith(value.toLowerCase());
       }).length > 0;
 
-
-    if ((show === false || local===false) && defaultImageHandler === null) {
+    if ((show === false || localUri===false) && defaultImageHandler === null) {
       return null;
     }
 
-    const imageUri = local ? defaultLocalImageHandler : defaultImageHandler
+    let imageUri;
+
+    
+    if ((show || localUri) || (show && localUri )) {
+      imageUri = localUri ? defaultLocalImageHandler + src : defaultImageHandler + src
+    }else{
+      imageUri = imagePickerUri + src
+    }
+
+    
 
     const imageProps = {
       indicator: true,
       key: node.key,
       style: styles._VIEW_SAFE_image,
       source: {
-        uri: show === true ? src : `${imageUri}${src}`,
+        uri: show === true ? src : imageUri,
       },
     };
 
